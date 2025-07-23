@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@keyframes coin-flip-float {
+  0% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotateY(360deg); 
+  }
+  100% {
+    transform: translateY(0) rotateY(360deg);
+  }
+}
+
+
+.animate-coin {
+  animation: coin-flip-float 2.5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+
+.perspective-container {
+  perspective: 1000px;
+}
