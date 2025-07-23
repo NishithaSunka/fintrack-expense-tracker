@@ -3,22 +3,26 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-
-// Load env vars
+const allowedOrigins = [
+    'http://localhost:5173',         
+    'https://fintrack-client-2wyu.onrender.com'
+];
+const corsOptions = {
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+};
+app.use(cors(corsOptions));
 dotenv.config();
-
-// Connect to database
 connectDB();
 
 const app = express();
-
-// Body parser middleware
 app.use(express.json());
-
-// Enable CORS for all routes
 app.use(cors());
-
-// Mount routers
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/transactions', require('./routes/transactions'));
 app.use('/api/budget', require('./routes/budget'));
