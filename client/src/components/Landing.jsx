@@ -5,28 +5,20 @@ import { FaRupeeSign } from 'react-icons/fa';
 
 const Landing = () => {
   return (
-    // Main container with a full-screen gradient background
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-400 to-indigo-500 text-white">
       <div className="text-center p-8 max-w-2xl mx-auto">
-        
-        {/* App Logo/Icon */}
         <div className="flex justify-center mb-6">
           <div className="bg-white p-4 rounded-full shadow-lg">
             <FaRupeeSign className="text-7xl text-indigo-600" />
           </div>
         </div>
-        
-        {/* Main Heading */}
         <h1 className="text-5xl md:text-5xl font-extrabold mb-4 animate-fade-in-down">
           Welcome to FinTrack
         </h1>
-        
-        {/* Tagline */}
+
         <p className="text-xl md:text-1xl text-indigo-200 mb-10 animate-fade-in-up">
           Your personal finance, simplified and clarified.
         </p>
-        
-        {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to="/signup"

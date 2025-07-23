@@ -1,6 +1,5 @@
-// server/models/GroupExpense.js
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 const GroupExpenseSchema = new mongoose.Schema({
   title: {
     type: String,

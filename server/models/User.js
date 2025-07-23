@@ -1,7 +1,6 @@
-// server/models/User.js
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -20,15 +19,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please add a password'],
     minlength: 6,
-    select: false, // Don't return password by default
+    select: false,
   },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
-
-// Encrypt password using bcrypt before saving
 UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next();

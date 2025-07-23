@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiHome, FiTrendingUp, FiPlusSquare, FiUsers, FiLogOut } from 'react-icons/fi';
-import { FaRupeeSign } from 'react-icons/fa'; // <-- Use Rupee icon from Font Awesome
+import { FaRupeeSign } from 'react-icons/fa'; 
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Sidebar = () => {
         <NavLink to="/transactions" className={({isActive}) => `${linkClasses} ${isActive ? activeLinkClasses : ''}`}>
           <FiPlusSquare className="mr-3" /> Add Transaction
         </NavLink>
-        {/* --- THIS IS THE CHANGED LINE --- */}
+        {}
         <NavLink to="/budget" className={({isActive}) => `${linkClasses} ${isActive ? activeLinkClasses : ''}`}>
           <FaRupeeSign className="mr-3" /> Set Budget
         </NavLink>

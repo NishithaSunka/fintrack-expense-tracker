@@ -4,8 +4,8 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import API from '../services/api';
 
 const Transactions = () => {
-  const { id } = useParams(); // Get the ID from the URL, if it exists
-  const location = useLocation(); // Get the state passed from the navigation
+  const { id } = useParams(); 
+  const location = useLocation(); 
   const navigate = useNavigate();
   
   const isEditMode = Boolean(id);
@@ -18,14 +18,12 @@ const Transactions = () => {
   const [category, setCategory] = useState('');
   const [message, setMessage] = useState('');
 
-  // Pre-fill the form if in edit mode
   useEffect(() => {
     if (isEditMode && existingTransaction) {
       setType(existingTransaction.type);
       setTitle(existingTransaction.title);
       setAmount(existingTransaction.amount);
       setCategory(existingTransaction.category);
-      // Format the date correctly for the input[type="date"] field (YYYY-MM-DD)
       setDate(new Date(existingTransaction.date).toISOString().split('T')[0]);
     }
   }, [isEditMode, existingTransaction]);
@@ -41,21 +39,16 @@ const Transactions = () => {
 
     try {
       if (isEditMode) {
-        // --- EDIT LOGIC ---
         await API.put(`/transactions/edit-transaction/${id}`, transactionData);
         setMessage('Transaction updated successfully!');
       } else {
-        // --- ADD LOGIC ---
         await API.post('/transactions/add-transaction', transactionData);
         setMessage('Transaction added successfully!');
-        // Reset form only when adding a new one
         setTitle('');
         setAmount('');
         setDate('');
         setCategory('');
       }
-
-      // Redirect back to the dashboard after a short delay
       setTimeout(() => navigate('/home'), 1500);
 
     } catch (err) {
@@ -73,14 +66,14 @@ const Transactions = () => {
         <div className="flex justify-center mb-6">
           <button
             onClick={() => setType('income')}
-            disabled={isEditMode} // Disable type switching when editing
+            disabled={isEditMode} 
             className={`px-6 py-2 w-1/2 text-lg font-semibold rounded-l-lg transition-colors ${type === 'income' ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700'} ${isEditMode && 'cursor-not-allowed opacity-70'}`}
           >
             Income
           </button>
           <button
             onClick={() => setType('expense')}
-            disabled={isEditMode} // Disable type switching when editing
+            disabled={isEditMode} 
             className={`px-6 py-2 w-1/2 text-lg font-semibold rounded-r-lg transition-colors ${type === 'expense' ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700'} ${isEditMode && 'cursor-not-allowed opacity-70'}`}
           >
             Expense

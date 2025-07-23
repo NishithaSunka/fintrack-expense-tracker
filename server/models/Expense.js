@@ -1,6 +1,5 @@
-// server/models/expense.js
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 const ExpenseSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -15,7 +14,7 @@ const ExpenseSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    default: 'expense', // Default value for this model
+    default: 'expense', 
   },
   date: {
     type: Date,
@@ -27,12 +26,10 @@ const ExpenseSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  // The 'user' field links this expense document to a specific user
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // This refers to the 'User' model
+    ref: 'User',
     required: true,
   },
-}, { timestamps: true }); // Automatically adds createdAt and updatedAt fields
-
+}, { timestamps: true }); 
 module.exports = mongoose.model('Expense', ExpenseSchema);

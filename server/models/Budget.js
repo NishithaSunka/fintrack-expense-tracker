@@ -1,6 +1,5 @@
-// server/models/Budget.js
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 const BudgetSchema = new mongoose.Schema({
   amount: {
     type: Number,
@@ -11,8 +10,7 @@ const BudgetSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
-    unique: true, // Each user has only one budget document
+    unique: true, 
   },
 });
-
 module.exports = mongoose.model('Budget', BudgetSchema);

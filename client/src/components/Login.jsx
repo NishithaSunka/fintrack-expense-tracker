@@ -15,8 +15,7 @@ const Login = () => {
     try {
       const res = await API.post('/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
-      // You might want to store user info as well
-      // localStorage.setItem('user', JSON.stringify(res.data.user));
+     
       navigate('/home');
     } catch (err) {
       setError(err.response?.data?.error || 'Login Failed');

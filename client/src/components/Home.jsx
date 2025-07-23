@@ -1,5 +1,5 @@
 // client/src/components/Home.jsx
-import React, { useState, useEffect, useMemo, useCallback } from 'react'; // <-- THE FIX IS HERE
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import API from '../services/api';
 import {
     FiPlusCircle, FiArrowUpCircle, FiArrowDownCircle, FiSearch,
@@ -219,7 +219,6 @@ const EditModal = ({ transaction, onClose, onUpdate }) => {
                     <input type="number" name="amount" value={formState.amount} onChange={handleChange} required className="w-full px-4 py-2 border rounded-md" />
                     <input type="date" name="date" value={formState.date} onChange={handleChange} required className="w-full px-4 py-2 border rounded-md" />
                     <select name="category" value={formState.category} onChange={handleChange} required className="w-full px-4 py-2 border rounded-md">
-                        {/* A simple implementation for categories */}
                         <option value={formState.category}>{formState.category}</option>
                         {["Salary", "Investment", "Gift", "Freelance", "Food", "Transport", "Shopping", "Bills", "Entertainment", "Other"]
                             .filter(cat => cat !== formState.category)

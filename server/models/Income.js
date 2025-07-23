@@ -1,6 +1,5 @@
-// server/models/income.js
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 const IncomeSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -15,7 +14,7 @@ const IncomeSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    default: 'income', // Default value for this model
+    default: 'income', 
   },
   date: {
     type: Date,
@@ -27,12 +26,10 @@ const IncomeSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  // The 'user' field links this income document to a specific user
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // This refers to the 'User' model
+    ref: 'User', 
     required: true,
   },
-}, { timestamps: true }); // Automatically adds createdAt and updatedAt fields
-
+}, { timestamps: true }); 
 module.exports = mongoose.model('Income', IncomeSchema);

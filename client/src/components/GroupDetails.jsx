@@ -6,8 +6,6 @@ import { FiUser, FiFileText, FiPlus, FiRepeat, FiUploadCloud, FiX, FiEdit } from
 import Tesseract from 'tesseract.js';
 
 const GroupDetails = () => {
-    // ... (All state and functions from the previous version remain exactly the same) ...
-    // No changes are needed to the JavaScript logic.
     const { groupId } = useParams();
     const [group, setGroup] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -122,16 +120,15 @@ const GroupDetails = () => {
     if (error) return <p className="text-red-500">{error}</p>;
     if (!group) return <p>Group not found.</p>;
 
-    // --- The JSX is the only part that changes from here ---
+  
     return (
         <div className="max-w-6xl mx-auto space-y-8">
             <h1 className="text-4xl font-bold text-gray-800">{group.group.groupName}</h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* --- START: Left Column (Redesigned) --- */}
+               
                 <div className="md:col-span-1 space-y-8">
-                    
-                    {/* Members List Card (No change) */}
+    
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-2xl font-semibold mb-4 flex items-center"><FiUser className="mr-2"/>Members</h2>
                         <ul className="space-y-2">
@@ -141,7 +138,6 @@ const GroupDetails = () => {
                         </ul>
                     </div>
 
-                    {/* NEW: Smart Add Card */}
                     <div className="bg-white p-6 rounded-lg shadow text-center border-2 border-dashed border-indigo-400">
                         <h2 className="text-2xl font-semibold mb-2 flex items-center justify-center">
                            <FiUploadCloud className="mr-2"/>Smart Add
@@ -155,7 +151,7 @@ const GroupDetails = () => {
                         </button>
                     </div>
 
-                    {/* UPDATED: Manual Add Expense Card */}
+                    
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-2xl font-semibold flex items-center mb-2">
                            <FiEdit className="mr-2"/>Manual Add
@@ -187,9 +183,7 @@ const GroupDetails = () => {
                         </form>
                     </div>
                 </div>
-                {/* --- END: Left Column --- */}
-
-                {/* --- START: Right Column (No change) --- */}
+        
                 <div className="md:col-span-2 space-y-8">
                     <div className="bg-white p-6 rounded-lg shadow">
                         <h2 className="text-2xl font-semibold mb-4 flex items-center"><FiRepeat className="mr-2"/>Balances</h2>
@@ -219,10 +213,9 @@ const GroupDetails = () => {
                         </ul>
                     </div>
                 </div>
-                {/* --- END: Right Column --- */}
             </div>
 
-            {/* Bill Analysis Modal (No change) */}
+            {}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md">
