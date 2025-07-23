@@ -1,13 +1,16 @@
-
 import axios from 'axios';
-
+const baseURL = process.env.NODE_ENV === 'production'
+  ? 'https://fintrack-expense-tracker.onrender.com' 
+  : 'http://localhost:5000/api';         
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', 
+  baseURL: baseURL,
 });
 API.interceptors.request.use((req) => {
-  if (localStorage.getItem('token')) {
-    req.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+  const token = localStorage.getItem('token');
+  if (token) {
+    req.headers.Authorization = `Bearer ${token}`;
   }
   return req;
 });
+
 export default API;
