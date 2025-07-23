@@ -18,7 +18,7 @@
 
 FinTrack is a full-stack MERN application designed to provide a seamless and intuitive solution for personal finance management and collaborative expense splitting. It empowers users to track their income and expenses, set monthly budgets, and effortlessly manage shared bills within groups.
 
-Built on a modern technology stack including Node.js, Express, React, and MongoDB, FinTrack ensures a robust and scalable foundation. Its standout feature is the **AI-powered bill scanning**, which uses a client-side OCR engine (Tesseract.js) to automatically read and extract the total amount from an uploaded receipt image, simplifying expense entry for groups.
+Built on a modern technology stack including Node.js, Express, React, and MongoDB, FinTrack ensures a robust and scalable foundation.
 
 ## Features
 
