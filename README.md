@@ -3,7 +3,7 @@
 <div align="center">
  
   <!-- TODO: Replace this with a real screenshot of your application's dashboard -->
-  <img src="Dashboard.jpg" alt="FinTrack Dashboard Screenshot" width="800"/>
+  <img src="Dashboard.png" alt="FinTrack Dashboard Screenshot" width="800"/>
 
 </div>
 
