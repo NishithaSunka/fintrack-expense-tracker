@@ -11,7 +11,7 @@ connectDB();
 const app = express();
 const allowedOrigins = [
     'http://localhost:5173',         
-    'https://fintrack-client-2wyu.onrender.com'
+    'https://fintrack-expense-tracker.onrender.com'
 ];
 const corsOptions = {
     origin: (origin, callback) => {
