@@ -18,7 +18,7 @@
 
 FinTrack is a full-stack MERN application designed to provide a seamless and intuitive solution for personal finance management and collaborative expense splitting. It empowers users to track their income and expenses, set monthly budgets, and effortlessly manage shared bills within groups.
 
-Built on a modern technology stack including Node.js, Express, React, and MongoDB, FinTrack ensures a robust and scalable foundation. Its standout feature is the **AI-powered bill scanning**, which uses a client-side OCR engine (Tesseract.js) to automatically read and extract the total amount from an uploaded receipt image, simplifying expense entry for groups.
+Built on a modern technology stack including Node.js, Express, React, and MongoDB, FinTrack ensures a robust and scalable foundation.
 
 ## Features
 
@@ -32,10 +32,7 @@ Built on a modern technology stack including Node.js, Express, React, and MongoD
   - Create groups and invite members via their email addresses.
   - Track shared expenses within the group.
   - A real-time settlement calculator shows "who owes whom" to simplify splitting bills.
-- **Smart Bill Scanning (OCR):**
-  - Users can upload an image of a receipt or bill.
-  - The application uses **Tesseract.js** to perform Optical Character Recognition directly in the browser.
-  - The AI automatically detects the total amount and pre-fills the expense form, which the user can then confirm and save.
+
 
 ## Tools and Technologies
 
@@ -49,7 +46,6 @@ Built on a modern technology stack including Node.js, Express, React, and MongoD
 - **React.js & Vite:** For building a fast, modern, and responsive user interface.
 - **React Router:** For client-side routing and navigation.
 - **Tailwind CSS:** For rapid, utility-first styling and a clean, modern design.
-- **Tesseract.js:** A powerful client-side OCR library to power the smart bill scanning feature.
 - **Chart.js & react-chartjs-2:** For creating beautiful and interactive charts.
 - **Axios:** For making promise-based HTTP requests to the backend API.
 - **React Icons:** For a clean and consistent icon set across the application.
