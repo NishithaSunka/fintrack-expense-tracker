@@ -31,32 +31,27 @@ const Transactions = () => {
   const incomeCategories = ["Salary", "Investment", "Gift", "Freelance", "Other"];
   const expenseCategories = ["Food", "Transport", "Shopping", "Bills", "Entertainment", "Other"];
 
-  const handleSubmit = async (e) => {
+
+const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
-
-    const transactionData = { title, amount, date, category, type };
-
     try {
-      if (isEditMode) {
-        await API.put(`/transactions/edit-transaction/${id}`, transactionData);
-        setMessage('Transaction updated successfully!');
-      } else {
-        await API.post('/transactions/add-transaction', transactionData);
-        setMessage('Transaction added successfully!');
+        
+        const endpoint = type === 'income' ? '/transactions/add-income' : '/transactions/add-expense';
+        
+        await API.post(endpoint, { title, amount, date, category });
+        setMessage(`${type.charAt(0).toUpperCase() + type.slice(1)} added successfully!`);
+        
         setTitle('');
         setAmount('');
         setDate('');
         setCategory('');
-      }
-      setTimeout(() => navigate('/home'), 1500);
-
     } catch (err) {
-      setMessage('Operation failed. Please try again.');
-      console.error(err);
+        const errorMsg = err.response?.data?.msg || 'Failed to add transaction. Please try again.';
+        setMessage(errorMsg);
+        console.error(err);
     }
-  };
-
+};
   return (
     <div className="max-w-2xl mx-auto">
       <h1 className="text-4xl font-bold text-gray-800 mb-8">
