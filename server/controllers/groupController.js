@@ -27,9 +27,9 @@ exports.getMyGroups = async (req, res) => {
         const groups = await Group.find({ members: req.user.id })
             .populate('members', 'name')
             .sort({ createdAt: -1 });
-        res.status(200).json(groups);
+        res.status(200).json(groups || []);
     } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch groups.' });
+        res.status(500).json([]);
     }
 };
 exports.addExpenseToGroup = async (req, res) => {

@@ -90,8 +90,8 @@ exports.getAllTransactions = async (req, res) => {
     try {
         const income = await Income.find({ user: req.user.id });
         const expense = await Expense.find({ user: req.user.id });
-        res.status(200).json({ income, expense });
+        res.status(200).json({ income: income || [], expense: expense || [] });
     } catch (err) {
-        res.status(500).json({ msg: "Error fetching transactions" });
+        res.status(500).json({ msg: "Error fetching transactions", income: [], expense: [] });
     }
 };

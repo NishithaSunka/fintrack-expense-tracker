@@ -13,9 +13,14 @@ const MyGroups = () => {
     const fetchGroups = async () => {
       try {
         const res = await API.get('/groups/my-groups');
-        setGroups(res.data);
+        if (Array.isArray(res.data)) {
+            setGroups(res.data);
+        } else {
+            setGroups([]); 
+        }
       } catch (err) {
         console.error("Failed to fetch groups", err);
+        setGroups([]); 
       } finally {
         setLoading(false);
       }

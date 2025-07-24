@@ -27,20 +27,23 @@ const Home = () => {
     const fetchData = useCallback(async () => {
         try {
             const res = await API.get('/transactions/all');
+            const income = Array.isArray(res.data.income) ? res.data.income : [];
+            const expense = Array.isArray(res.data.expense) ? res.data.expense : [];
+
             const allTransactions = [
-                ...res.data.income.map(t => ({ ...t, type: 'income' })),
-                ...res.data.expense.map(t => ({ ...t, type: 'expense' })),
+                ...income.map(t => ({ ...t, type: 'income' })),
+                ...expense.map(t => ({ ...t, type: 'expense' })),
             ];
             allTransactions.sort((a, b) => new Date(b.date) - new Date(a.date));
             setTransactions(allTransactions);
         } catch (err) {
             console.error("Failed to load transactions", err);
             if (err.response?.status === 401) navigate('/login');
+            setTransactions([]);
         } finally {
             setLoading(false);
         }
     }, [navigate]);
-
     useEffect(() => {
         fetchData();
     }, [fetchData]);
