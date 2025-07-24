@@ -46,7 +46,6 @@ Built on a modern technology stack including Node.js, Express, React, and MongoD
 - **React.js & Vite:** For building a fast, modern, and responsive user interface.
 - **React Router:** For client-side routing and navigation.
 - **Tailwind CSS:** For rapid, utility-first styling and a clean, modern design.
-- **Tesseract.js:** A powerful client-side OCR library to power the smart bill scanning feature.
 - **Chart.js & react-chartjs-2:** For creating beautiful and interactive charts.
 - **Axios:** For making promise-based HTTP requests to the backend API.
 - **React Icons:** For a clean and consistent icon set across the application.
