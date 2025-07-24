@@ -1,6 +1,6 @@
-
 const Income = require('../models/Income');
 const Expense = require('../models/Expense');
+
 exports.addIncome = async (req, res) => {
     const { title, amount, category, date } = req.body;
     const income = new Income({ title, amount, category, date, user: req.user.id });
@@ -13,6 +13,7 @@ exports.addIncome = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.getIncomes = async (req, res) => {
     try {
         const incomes = await Income.find({ user: req.user.id }).sort({ createdAt: -1 });
@@ -21,6 +22,7 @@ exports.getIncomes = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.deleteIncome = async (req, res) => {
     try {
         const income = await Income.findOneAndDelete({ _id: req.params.id, user: req.user.id });
@@ -30,6 +32,7 @@ exports.deleteIncome = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.addExpense = async (req, res) => {
     const { title, amount, category, date } = req.body;
     const expense = new Expense({ title, amount, category, date, user: req.user.id });
@@ -42,6 +45,7 @@ exports.addExpense = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.getExpenses = async (req, res) => {
     try {
         const expenses = await Expense.find({ user: req.user.id }).sort({ createdAt: -1 });
@@ -50,6 +54,7 @@ exports.getExpenses = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.deleteExpense = async (req, res) => {
     try {
         const expense = await Expense.findOneAndDelete({ _id: req.params.id, user: req.user.id });
@@ -59,6 +64,7 @@ exports.deleteExpense = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
 exports.updateTransaction = async (req, res) => {
     const { id } = req.params;
     const { title, amount, category, date, type } = req.body;
@@ -71,7 +77,6 @@ exports.updateTransaction = async (req, res) => {
     try {
         const Model = type === 'income' ? Income : Expense;
         const transaction = await Model.findOne({ _id: id, user: req.user.id });
-
         if (!transaction) {
             return res.status(404).json({ error: 'Transaction not found or user not authorized.' });
         }
@@ -86,12 +91,18 @@ exports.updateTransaction = async (req, res) => {
         res.status(500).json({ error: 'Server error while updating transaction.' });
     }
 };
+
 exports.getAllTransactions = async (req, res) => {
     try {
         const income = await Income.find({ user: req.user.id });
         const expense = await Expense.find({ user: req.user.id });
         res.status(200).json({ income: income || [], expense: expense || [] });
     } catch (err) {
-        res.status(500).json({ msg: "Error fetching transactions", income: [], expense: [] });
+        console.error("Server error in getAllTransactions:", err);
+        res.status(500).json({
+            msg: "Error fetching transactions",
+            income: [],
+            expense: []
+        });
     }
 };
