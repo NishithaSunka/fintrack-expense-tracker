@@ -32,10 +32,7 @@ Built on a modern technology stack including Node.js, Express, React, and MongoD
   - Create groups and invite members via their email addresses.
   - Track shared expenses within the group.
   - A real-time settlement calculator shows "who owes whom" to simplify splitting bills.
-- **Smart Bill Scanning (OCR):**
-  - Users can upload an image of a receipt or bill.
-  - The application uses **Tesseract.js** to perform Optical Character Recognition directly in the browser.
-  - The AI automatically detects the total amount and pre-fills the expense form, which the user can then confirm and save.
+
 
 ## Tools and Technologies
 
