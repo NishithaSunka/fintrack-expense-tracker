@@ -3,16 +3,15 @@
 <div align="center">
  
   <!-- TODO: Replace this with a real screenshot of your application's dashboard -->
-  <img src="" alt="FinTrack Dashboard Screenshot" width="800"/>
+  <img src="Dashboard.png" alt="FinTrack Dashboard Screenshot" width="800"/>
 
 </div>
 
 <br/>
 
-> *Note:* Please take a screenshot of your application's dashboard (the Home page) after you've added some transactions. Save it as dashboard.png inside the client/public/ folder. Then, replace the placeholder image link above with the real one from your GitHub repository.
 
-*Live Application Link:* [https://fintrack-expense-tracker-your-id.onrender.com](https://fintrack-expense-tracker-your-id.onrender.com) 
-> *Replace your-id with the unique ID Render gave your final URL.*
+*Live Application Link:* [https://fintrack-expense-tracker.onrender.com]
+
 
 ## Description
 
